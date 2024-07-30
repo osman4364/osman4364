@@ -1,12 +1,16 @@
-- 👋 Hi, I’m @osman4364
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+using UnityEngine;
 
-<!---
-osman4364/osman4364 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+public class CarController : MonoBehaviour
+{
+    public float speed = 10f;
+    public float turnSpeed = 50f;
+
+    void Update()
+    {
+        float move = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        float turn = Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime;
+
+        transform.Translate(0, 0, move);
+        transform.Rotate(0, turn, 0);
+    }
+}
